@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICASG - Image Captioning and Speech Generator</title>
+    <!-- Make sure the paths to your CSS and JS files are correct -->
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Load Font Awesome from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Defer script loading until after HTML is parsed -->
+    <script defer src="/static/script.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-image"></i> ICASG <i class="fas fa-microphone-alt"></i>
+        </div>
+        <div class="subtitle">Image Captioning And Speech Generator</div>
+    </div>
+    
+    <div class="container">
+        <div class="upload-section">
+            <h2><i class="fas fa-upload"></i> Upload an Image or Use Webcam</h2>
+            <div class="upload-options">
+                <label for="imageUpload" class="file-input-label">
+                    <i class="fas fa-file-image"></i> Choose File
+                    <input type="file" id="imageUpload" class="file-input" accept="image/*">
+                </label>
+                <button id="webcamButton" class="btn webcam-btn">
+                    <i class="fas fa-camera"></i> Open Webcam
+                </button>
+            </div>
+            
+            <div class="webcam-container">
+                <video id="webcam" autoplay class="webcam-feed"></video>
+                <button id="captureButton" class="btn capture-btn">
+                    <i class="fas fa-camera-retro"></i> Capture Photo
+                </button>
+            </div>
+            
+            <div class="preview-container">
+                <h3>Image Preview</h3>
+                <img id="imagePreview" class="image-preview" src="" alt="Preview">
+            </div>
+            
+            <canvas id="canvas" style="display: none;"></canvas>
+            
+            <button id="processButton" class="btn process-btn">
+                <i class="fas fa-cogs"></i> Process Image
+            </button>
+        </div>
+        
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Processing your image...
+        </div>
+        
+        <div id="status" class="status">
+            <i class="fas fa-info-circle"></i> Ready to process your image
+        </div>
+        
+        <div class="results-container">
+            <div class="language-section">
+                <h3><i class="fas fa-language"></i> Select a Language:</h3>
+                <div class="language-buttons" id="langButtons"></div>
+            </div>
+            
+            <div class="caption-container">
+                <h3><i class="fas fa-closed-captioning"></i> Generated Caption:</h3>
+                <p id="captionText">Your caption will appear here.</p>
+                <button id="copyButton" class="btn copy-btn">
+                    <i class="fas fa-copy"></i> Copy Text
+                </button>
+            </div>
+            
+            <div class="audio-section">
+                <h3><i class="fas fa-headphones"></i> Generated Audio:</h3>
+                <audio id="audioPlayer" controls class="audio-player"></audio>
+                <button id="downloadButton" class="btn download-btn">
+                    <i class="fas fa-download"></i> Download Audio
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="history-section">
+        <button id="historyButton" class="btn history-btn">
+            <i class="fas fa-history"></i> View History
+        </button>
+        <div class="history-container" id="historyContainer">
+            <!-- History items will be added here dynamically -->
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 ICASG - Image Captioning And Speech Generator | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
